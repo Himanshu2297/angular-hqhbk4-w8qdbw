@@ -1,6 +1,8 @@
 <p>Flight</p>
 <div [formGroup]="sortValueFormGroup">
+  hijijjijij
   <div *ngFor="let item of sortValues; let i = index">
+    {{ item | json }}
     <input
       type="radio"
       formControlName="sortMethod"
@@ -13,4 +15,5 @@
     </label>
   </div>
 </div>
+{{ sortValueFormGroup.controls['sortMethod'].value }}
 {{ getvalueById(sortValueFormGroup.controls['sortMethod'].value) | json }}

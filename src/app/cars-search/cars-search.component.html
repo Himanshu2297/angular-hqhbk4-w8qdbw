@@ -23,6 +23,60 @@
     </div>
   </div>
 
+  <div class="form-row">
+    <div class="form-group col">
+      <label>Pick up Date</label>
+      <input
+        type="date"
+        name="begin"
+        placeholder="dd-mm-yyyy"
+        value=""
+        min="1997-01-01"
+        max="2030-12-31"
+        formControlName="pickUpDate"
+      />
+    </div>
+    <div class="form-group col">
+      <label>Drop off date</label>
+      <input
+        type="date"
+        name="begin"
+        placeholder="dd-mm-yyyy"
+        value=""
+        min="1997-01-01"
+        max="2030-12-31"
+        formControlName="dropOffDate"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col">
+      <label>Pick up Time</label>
+      <input
+        type="time"
+        name="begin"
+        placeholder="dd-mm-yyyy"
+        value=""
+        min="1997-01-01"
+        max="2030-12-31"
+        formControlName="pickUpTime"
+      />
+    </div>
+    <div class="form-group col">
+      <label>Drop off Time</label>
+      <input
+        type="time"
+        name="begin"
+        placeholder="dd-mm-yyyy"
+        value=""
+        min="1997-01-01"
+        max="2030-12-31"
+        formControlName="dropOffTime"
+      />
+    </div>
+  </div>
+
   <!-- <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -63,3 +117,6 @@
 
   <button class="btn btn-primary mr-1">Search Rental Cars</button>
 </form>
+
+<!-- {{carsSearchForm.controls | json}} -->
+{{ formControls}}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.css'],
 })
-export class FlightsComponent {
+export class FlightsComponent implements OnInit {
   sortValues = [
     {
       sortId: '104',
@@ -34,7 +34,7 @@ export class FlightsComponent {
     },
   ];
 
-  // accreditation form group
+  // form group
   sortValueFormGroup: FormGroup;
   constructor(public formBuilder: FormBuilder) {}
 
