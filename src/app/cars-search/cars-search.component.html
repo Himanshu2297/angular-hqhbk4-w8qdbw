@@ -58,7 +58,7 @@
         name="begin"
         placeholder="dd-mm-yyyy"
         value=""
-        min="1997-01-01"
+        min="get"
         max="2030-12-31"
         formControlName="pickUpTime"
       />
@@ -76,16 +76,6 @@
       />
     </div>
   </div>
-
-  <!-- <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field> -->
-
-  <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker> -->
 
   <!-- Drop down -->
 
@@ -117,6 +107,3 @@
 
   <button class="btn btn-primary mr-1">Search Rental Cars</button>
 </form>
-
-<!-- {{carsSearchForm.controls | json}} -->
-{{ formControls}}

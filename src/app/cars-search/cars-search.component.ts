@@ -40,6 +40,8 @@ export class CarsSearchComponent implements OnInit {
     //   return;
     // }
 
+    console.log('frm', this.carsSearchForm.value);
+
     this.router.navigate(['search']);
   }
 }
