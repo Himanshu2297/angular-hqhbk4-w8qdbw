@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CarSearchService } from '../services/car-search.service';
 
 @Component({
   selector: 'app-cars-search',
@@ -11,12 +12,12 @@ export class CarsSearchComponent implements OnInit {
   carsSearchForm: FormGroup;
   submitted = false;
   ageList: any = [];
-  // ageList: any = [
-  //   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-  //   22, 23, 24, 25,
-  // ];
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private carSearchService: CarSearchService
+  ) {}
 
   ngOnInit() {
     this.carsSearchForm = this.formBuilder.group({
@@ -28,7 +29,7 @@ export class CarsSearchComponent implements OnInit {
       ageOfDriver: ['', Validators.required],
     });
 
-    for (var i = 1; i < 25; i++) {
+    for (var i = 1; i < 26; i++) {
       this.ageList.push(i);
     }
   }
@@ -40,6 +41,7 @@ export class CarsSearchComponent implements OnInit {
   searchCars() {
     this.submitted = true;
 
+    this.carSearchService.setSearchDetails(this.carsSearchForm.value);
     // stop here if form is invalid
     // if (this.carsSearchForm.invalid) {
     //   return;

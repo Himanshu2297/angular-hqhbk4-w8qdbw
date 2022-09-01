@@ -1,5 +1,3 @@
-<p>Car Search</p>
-
 <form [formGroup]="carsSearchForm" (ngSubmit)="searchCars()">
   <div class="form-row">
     <div class="form-group">
@@ -82,9 +80,11 @@
   <div class="form-group">
     <label for="ageOfDriver">Age of Driver</label>
     <select formControlName="ageOfDriver" class="form-control">
-      <option disabled>Select Age</option>
+      <!-- <option disabled>Select Age</option> -->
       <option>Select age</option>
-      <option *ngFor="let age of ageList">{{ age }}</option>
+      <option *ngFor="let age of ageList">
+        {{ age == 25 ? age + '+' : age }}
+      </option>
     </select>
 
     <div

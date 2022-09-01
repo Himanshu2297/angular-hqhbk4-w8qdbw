@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CarSearchService } from '../services/car-search.service';
 
 @Component({
   selector: 'app-flights',
@@ -36,7 +38,12 @@ export class FlightsComponent implements OnInit {
 
   // form group
   sortValueFormGroup: FormGroup;
-  constructor(public formBuilder: FormBuilder) {}
+
+  constructor(
+    public formBuilder: FormBuilder,
+    private router: Router,
+    private carSearchService: CarSearchService
+  ) {}
 
   ngOnInit() {
     this.sortValueFormGroup = this.formBuilder.group({
@@ -50,5 +57,9 @@ export class FlightsComponent implements OnInit {
 
   onSubmit() {
     console.log(this.sortValueFormGroup);
+  }
+
+  backButton() {
+    this.carSearchService.setSortDetails(this.sortValueFormGroup.value);
   }
 }
