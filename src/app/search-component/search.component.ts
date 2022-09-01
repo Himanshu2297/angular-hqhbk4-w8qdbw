@@ -132,6 +132,7 @@ export class SearchComponent {
   };
 
   sortResults() {
+    this.router.navigate(['flights']);
     // console.log('hiiii');
   }
 }

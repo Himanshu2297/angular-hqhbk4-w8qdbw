@@ -1,12 +1,16 @@
 <p>Flight</p>
-
-<!-- <p>
-  <img
-    src="pineapple.jpg"
-    alt="Pineapple"
-    style="width:70px;height:70px;margin-right:15px;"
-  />
-  Hi<br />
-  hi<br />
-  Passneger
-</p> -->
+<div [formGroup]="sortValueFormGroup">
+  <div *ngFor="let item of sortValues; let i = index">
+    <input
+      type="radio"
+      formControlName="sortMethod"
+      id="radio{{ i }}"
+      name="sortMethod"
+      [value]="item.sortId"
+    />
+    <label class="custom-control-label" for="radio{{ i }}">
+      {{ item.sortValueBy || '?' }}
+    </label>
+  </div>
+</div>
+{{ getvalueById(sortValueFormGroup.controls['sortMethod'].value) | json }}
