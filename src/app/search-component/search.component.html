@@ -1,0 +1,57 @@
+<div *ngFor="let vehicle of vehicleDetails.carMockItineraries.CarItineraries">
+  <div
+    class="box"
+    style="border-top:0.5px solid black; border-bottom: 0.5px solid black;"
+  >
+    <div style="display: flex;">
+      <div class="image">
+        <img src="{{ vehicle.vehicle.image }}" alt="car" style="width:80px" />
+      </div>
+
+      <div class="content">
+        <h5>{{ vehicle.vehicle.type }}</h5>
+        <h6>{{ vehicle.vehicle.name }}</h6>
+        <ul style="list-style: none;padding: 0;margin: 0; display: flex;">
+          <li>
+            <i class="material-icons"> groups </i>
+            <span>
+              {{ vehicle.vehicle.specifications.passengerCapacity }}
+            </span>
+          </li>
+          &nbsp; &nbsp;
+          <li>
+            <span class="material-icons">work_outline</span>
+            <span> {{ vehicle.vehicle.specifications.baggageCapacity }}</span>
+          </li>
+          &nbsp; &nbsp;
+          <li>
+            <span class="material-icons">speed</span>
+            <span>{{ vehicle.unlimitedMileage ? unlimitedMiles : '' }}</span>
+          </li>
+          &nbsp; &nbsp;
+        </ul>
+      </div>
+    </div>
+    <p>
+      <span style="color: green">Free cancellation </span>untill
+      {{
+        vehicle.cancellationDetails.freeCancellationEndDate
+          | date: 'EEEE, MMMM d, y'
+      }}
+    </p>
+    <div class="bottom-text">
+      <p>
+        <span style="color: green; font-size:16px"
+          >${{ vehicle.fare.perDay }}</span
+        >
+        avg/day
+      </p>
+      <p><span>Total(23):</span> {{ vehicle.fare.totalAmount }}</p>
+    </div>
+  </div>
+</div>
+
+<div stle="position:sticky; top:0">
+  <button (click)="sortResults()">Sort</button>
+  <button type="submit">Filter</button>
+</div>

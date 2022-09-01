@@ -1,0 +1,65 @@
+<p>Car Search</p>
+
+<form [formGroup]="carsSearchForm" (ngSubmit)="searchCars()">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Pick Up Location</label>
+      <input
+        type="text"
+        formControlName="pickUpLocation"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': submitted && formControls['pickUpLocation'].errors
+        }"
+      />
+      <div
+        *ngIf="submitted && formControls['pickUpLocation'].errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="formControls['pickUpLocation'].errors['required']">
+          Pick up location is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> -->
+
+  <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker> -->
+
+  <!-- Drop down -->
+
+  <div class="form-group">
+    <label for="ageOfDriver">Age of Driver</label>
+    <select formControlName="ageOfDriver" class="form-control">
+      <option disabled>Select Age</option>
+      <option>Select age</option>
+      <option *ngFor="let age of ageList">{{ age }}</option>
+    </select>
+
+    <div
+      *ngIf="
+        formControls['ageOfDriver'].touched &&
+        formControls['ageOfDriver'].invalid
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="
+          formControls['ageOfDriver'].errors &&
+          formControls['ageOfDriver'].errors['required']
+        "
+      >
+        Age is required
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary mr-1">Search Rental Cars</button>
+</form>
