@@ -1,9 +1,6 @@
 <p>Flight</p>
 <div [formGroup]="sortValueFormGroup">
-  hijijjijij
-  {{ sortValues | json }}
   <div *ngFor="let item of sortValues; let i = index">
-    {{ item | json }}
     <input
       type="radio"
       formControlName="sortMethod"

@@ -42,13 +42,6 @@ export class FlightsComponent implements OnInit {
     this.sortValueFormGroup = this.formBuilder.group({
       sortMethod: new FormControl('105'),
     });
-    const sortMethodControls = <FormArray>(
-      this.sortValueFormGroup.controls['productMethods']
-    );
-    // creating radio button control for each item.
-    for (let i = 0, length = this.sortValues.length; i < length; i++) {
-      sortMethodControls.push(new FormControl(false));
-    }
   }
 
   getvalueById(id) {

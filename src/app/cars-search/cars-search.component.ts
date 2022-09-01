@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 export class CarsSearchComponent implements OnInit {
   carsSearchForm: FormGroup;
   submitted = false;
-  ageList: any = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
-  ];
+  ageList: any = [];
+  // ageList: any = [
+  //   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+  //   22, 23, 24, 25,
+  // ];
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
@@ -26,6 +27,10 @@ export class CarsSearchComponent implements OnInit {
       dropOffTime: ['', Validators.required],
       ageOfDriver: ['', Validators.required],
     });
+
+    for (var i = 1; i < 25; i++) {
+      this.ageList.push(i);
+    }
   }
 
   get formControls() {
