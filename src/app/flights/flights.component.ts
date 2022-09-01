@@ -61,5 +61,6 @@ export class FlightsComponent implements OnInit {
 
   backButton() {
     this.carSearchService.setSortDetails(this.sortValueFormGroup.value);
+    console.log(this.sortValueFormGroup.value);
   }
 }

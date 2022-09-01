@@ -1,4 +1,8 @@
-{{ searchValues | json }}
+<!-- {{ searchValues | json }} -->
+
+{{ searchValues.pickUpLocation }} <br />
+
+{{ searchValues.pickUpTime + '-' + searchValues.dropOffTime }}
 
 <div *ngFor="let vehicle of vehicleDetails.carMockItineraries.CarItineraries">
   <div

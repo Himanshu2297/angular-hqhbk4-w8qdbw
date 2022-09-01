@@ -12,5 +12,7 @@
     </label>
   </div>
 </div>
+
+<button (click)="backButton()">Back</button>
 {{ sortValueFormGroup.controls['sortMethod'].value }}
 {{ getvalueById(sortValueFormGroup.controls['sortMethod'].value) | json }}
