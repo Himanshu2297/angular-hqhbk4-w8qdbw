@@ -12,7 +12,7 @@ export class CarsSearchComponent implements OnInit {
   carsSearchForm: FormGroup;
   submitted = false;
   ageList: any = [];
-  currentDate = new Date().toISOString().substring(0,10);
+  currentDate = new Date();
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,

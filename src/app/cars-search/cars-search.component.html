@@ -23,17 +23,28 @@
   </div>
 
   <div class="form-row">
-    <div class="form-group col">
+    <div class="form-group">
       <label>Pick up Date</label>
       <input
         type="date"
         name="begin"
         placeholder="dd-mm-yyyy"
         value=""
-        min="1997-01-01"
-        max="2030-12-31"
+        min="{{ currentDate | date: 'yyyy-MM-dd' }}"
         formControlName="pickUpDate"
+        
+        [ngClass]="{
+          'is-invalid': submitted && formControls['pickUpDate'].errors
+        }"
       />
+    </div>
+    <div
+      *ngIf="submitted && formControls['pickUpDate'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="formControls['pickUpDate'].errors['required']">
+        Pick up date is required
+      </div>
     </div>
     <div class="form-group col">
       <label>Drop off date</label>
@@ -42,10 +53,17 @@
         name="begin"
         placeholder="dd-mm-yyyy"
         value=""
-        min="1997-01-01"
-        max="2030-12-31"
+        min="{{ currentDate | date: 'yyyy-MM-dd' }}"
         formControlName="dropOffDate"
       />
+      <div
+        *ngIf="submitted && formControls['dropOffDate'].errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="formControls['dropOffDate'].errors['required']">
+          Drop off date is required
+        </div>
+      </div>
     </div>
   </div>
 
