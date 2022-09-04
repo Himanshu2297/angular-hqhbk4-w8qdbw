@@ -1,3 +1,4 @@
+<!-- <app-nav-bar></app-nav-bar> -->
 <form [formGroup]="carsSearchForm" (ngSubmit)="searchCars()">
   <div class="form-row">
     <div class="form-group">
@@ -104,6 +105,7 @@
       </div>
     </div>
   </div>
-
+  [disabled]="true"
   <button class="btn btn-primary mr-1">Search Rental Cars</button>
 </form>
+<router-outlet></router-outlet>

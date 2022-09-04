@@ -12,7 +12,7 @@ export class CarsSearchComponent implements OnInit {
   carsSearchForm: FormGroup;
   submitted = false;
   ageList: any = [];
-
+  currentDate = new Date().toISOString().substring(0,10);
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -46,9 +46,10 @@ export class CarsSearchComponent implements OnInit {
     // if (this.carsSearchForm.invalid) {
     //   return;
     // }
-
-    console.log('frm', this.carsSearchForm.value);
-
+    if (this.carsSearchForm.invalid) {
+      return;
+    }
     this.router.navigate(['search']);
+    console.log('frm', this.carsSearchForm.value);
   }
 }

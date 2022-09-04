@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { CarSearchService } from '../services/car-search.service';
 
 @Component({
-  selector: 'app-flights',
-  templateUrl: './flights.component.html',
+  selector: 'app-sort',
+  templateUrl: './sort.component.html',
+  styleUrls: ['./sort.component.css'],
 })
-export class FlightsComponent implements OnInit {
+export class SortComponent implements OnInit {
   sortValues = [
     {
       sortId: '104',

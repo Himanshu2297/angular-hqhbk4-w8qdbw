@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
   }
 
   sortResults() {
-    this.router.navigate(['flights']);
+    this.router.navigate(['sort']);
     // console.log('hiiii');
   }
 }

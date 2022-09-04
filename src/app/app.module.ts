@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -10,37 +11,51 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FlightsComponent } from './flights/flights.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { CruisesComponent } from './cruises/cruises.component';
-import { SearchComponent } from './search-component/search.component';
+import { SortComponent } from './sort/sort.component';
+
+// import { SearchComponent } from './search-component/search.component';
 
 // import { MaterialModule } from './material.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
+    CommonModule,
     RouterModule.forRoot([
-      { path: '', component: CarsSearchComponent },
+      // { path: '', component: CarsSearchComponent },
+      {
+        path: '',
+        loadChildren: () =>
+          import('./cars-search/cars-search.module').then(
+            (m) => m.CarsSearchModule
+          ),
+      },
       { path: 'flights', component: FlightsComponent },
       { path: 'hotels', component: HotelsComponent },
       { path: 'cruises', component: CruisesComponent },
-      {
-        path: 'search',
-        component: SearchComponent,
-      },
+      { path: 'sort', component: SortComponent },
+
+      // {
+      //   path: 'search',
+      //   component: SearchComponent,
+      // },
     ]),
-    // MaterialModule,
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    CarsSearchComponent,
+    // CarsSearchComponent,
     NavBarComponent,
     FlightsComponent,
     HotelsComponent,
     CruisesComponent,
-    SearchComponent,
+    SortComponent,
+    // SearchComponent,
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
 

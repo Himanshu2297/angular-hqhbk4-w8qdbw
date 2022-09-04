@@ -1,4 +1,4 @@
-<!-- <div [formGroup]="sortValueFormGroup">
+<div [formGroup]="sortValueFormGroup">
   <div *ngFor="let item of sortValues; let i = index">
     <input
       type="radio"
@@ -11,8 +11,8 @@
       {{ item.sortValueBy || '?' }}
     </label>
   </div>
-</div> -->
+</div>
 
 <button (click)="backButton()">Back</button>
 {{ sortValueFormGroup.controls['sortMethod'].value }}
-<!-- {{ getvalueById(sortValueFormGroup.controls['sortMethod'].value) | json }} -->
+{{ getvalueById(sortValueFormGroup.controls['sortMethod'].value) | json }}
