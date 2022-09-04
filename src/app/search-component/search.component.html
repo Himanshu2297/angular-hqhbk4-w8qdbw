@@ -16,19 +16,38 @@
       <h6>{{ vehicle.vehicle.name }}</h6>
       <ul style="list-style: none;padding: 0;margin: 0; display: flex;">
         <li>
-          <i class="material-icons"> groups </i>
+          <i
+            class="material-icons "
+            style="
+          vertical-align: sub;     padding-right: 2px;
+      "
+          >
+            groups
+          </i>
           <span>
             {{ vehicle.vehicle.specifications.passengerCapacity }}
           </span>
         </li>
         &nbsp; &nbsp;
         <li>
-          <span class="material-icons">work_outline</span>
+          <span
+            class="material-icons"
+            style="
+          vertical-align: sub; 
+      "
+            >work_outline</span
+          >
           <span> {{ vehicle.vehicle.specifications.baggageCapacity }}</span>
         </li>
         &nbsp; &nbsp;
         <li>
-          <span class="material-icons">speed</span>
+          <span
+            class="material-icons"
+            style="
+          vertical-align: sub;     padding-right: 5px;
+      "
+            >speed</span
+          >
           <span>{{ vehicle.unlimitedMileage ? unlimitedMiles : '' }}</span>
         </li>
         &nbsp; &nbsp;
