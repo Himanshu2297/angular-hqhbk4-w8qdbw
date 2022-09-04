@@ -71,12 +71,21 @@
       type="time"
       name="begin"
       placeholder="dd-mm-yyyy"
-      value=""
-      min="get"
-      max="2030-12-31"
       formControlName="pickUpTime"
       class="time-picker"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && formControls['pickUpTime'].errors
+      }"
     />
+    <div
+      *ngIf="submitted && formControls['pickUpTime'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="formControls['pickUpTime'].errors['required']">
+        Pick up time is required
+      </div>
+    </div>
   </div>
   <div class="col-6 mt-3">
     <label>Drop off Time</label>
@@ -85,15 +94,30 @@
       type="time"
       name="begin"
       placeholder="dd-mm-yyyy"
-      value=""
-      min="1997-01-01"
-      max="2030-12-31"
       formControlName="dropOffTime"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && formControls['dropOffTime'].errors
+      }"
     />
+    <div
+      *ngIf="submitted && formControls['dropOffTime'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="formControls['dropOffTime'].errors['required']">
+        Drop off time is required
+      </div>
+    </div>
   </div>
   <div class="col-12 mt-3">
     <label for="ageOfDriver">Age of Driver</label>
-    <select formControlName="ageOfDriver" class="form-control">
+    <select
+      formControlName="ageOfDriver"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && formControls['ageOfDriver'].errors
+      }"
+    >
       <!-- <option disabled>Select Age</option> -->
       <option>Select age</option>
       <option *ngFor="let age of ageList">
@@ -101,19 +125,11 @@
       </option>
     </select>
     <div
-      *ngIf="
-        formControls['ageOfDriver'].touched &&
-        formControls['ageOfDriver'].invalid
-      "
-      class="alert alert-danger"
+      *ngIf="submitted && formControls['ageOfDriver'].errors"
+      class="invalid-feedback"
     >
-      <div
-        *ngIf="
-          formControls['ageOfDriver'].errors &&
-          formControls['ageOfDriver'].errors['required']
-        "
-      >
-        Age is required
+      <div *ngIf="formControls['ageOfDriver'].errors['required']">
+        Driver is required
       </div>
     </div>
   </div>
