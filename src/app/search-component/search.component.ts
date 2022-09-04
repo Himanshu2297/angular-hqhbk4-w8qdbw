@@ -5,7 +5,7 @@ import { CarSearchService } from '../services/car-search.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  // styleUrls: ['./cars-search.component.css'],
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
   unlimitedMiles = 'Unlimited Miles';
