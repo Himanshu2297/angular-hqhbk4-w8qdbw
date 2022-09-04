@@ -1,8 +1,8 @@
 {{ searchValues.pickUpLocation }} <br />
 
 {{ searchValues.pickUpTime + '-' + searchValues.dropOffTime }}
-
-<div
+<div >
+<div 
   class="row box p-2 mb-2"
   *ngFor="let vehicle of vehicleDetails.carMockItineraries.CarItineraries"
 >
@@ -80,3 +80,5 @@
   <button (click)="sortResults()">Sort</button>
   <button type="submit">Filter</button>
 </div>
+
+
