@@ -49,7 +49,7 @@
       name="begin"
       placeholder="dd-mm-yyyy"
       value=""
-      min="{{ currentDate | date: 'yyyy-MM-dd' }}"
+      min="{{ formControls['pickUpDate'].value | date: 'yyyy-MM-dd' }}"
       formControlName="dropOffDate"
       class="form-control"
       [ngClass]="{
