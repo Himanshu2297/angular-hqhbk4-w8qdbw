@@ -17,7 +17,7 @@
       <ul style="list-style: none;padding: 0;margin: 0; display: flex;">
         <li>
           <i
-            class="material-icons "
+            class="material-icons"
             style="
           vertical-align: sub;     padding-right: 2px;
       "
@@ -55,7 +55,8 @@
     </div>
   </div>
   <p>
-    <span style="color: green">Free cancellation </span>untill
+    <span style="color: green; font-weight: bold">Free cancellation </span
+    >untill
     {{
       vehicle.cancellationDetails.freeCancellationEndDate
         | date: 'EEEE, MMMM d, y'
@@ -63,12 +64,15 @@
   </p>
   <div class="bottom-text" style="border-top:2px solid #f0f0f0">
     <p class="m-0 mb-1">
-      <span style="color: green; font-size:16px"
+      <span style="color: green; font-size:16px;  font-weight: bold"
         >${{ vehicle.fare.perDay }}</span
       >
       avg/day
     </p>
-    <p><span>Total(23):</span> {{ vehicle.fare.totalAmount }}</p>
+    <p>
+      <span>Total(23):</span>
+      <span style="font-weight: bold">{{ vehicle.fare.totalAmount }}</span>
+    </p>
   </div>
 </div>
 
