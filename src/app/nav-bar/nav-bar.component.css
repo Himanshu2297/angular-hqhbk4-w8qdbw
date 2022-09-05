@@ -11,7 +11,8 @@
   font-size: 20px;
 }
 .nav {
-  max-width: 455px;
-  max-height: 50px;
-  overflow: hidden;
+  height: 40px;
+  position: sticky;
+  top: 68px;
+  background: #fff;
 }

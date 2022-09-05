@@ -18,11 +18,6 @@ body {
   flex-direction: row;
 }
 
-router-outlet + * {
-  padding: 0 16px;
-  padding-top: 16px;
-}
-
 /* Text */
 
 h1 {
@@ -127,7 +122,6 @@ app-top-bar {
   background-color: var(--secondary);
   padding: 16px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }

@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { CarSearchService } from '../services/car-search.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  selector: 'app-car-list',
+  templateUrl: './car-list.component.html',
+  styleUrls: ['./car-list.component.css'],
 })
-export class SearchComponent implements OnInit {
+export class CarListComponent implements OnInit {
   unlimitedMiles = 'Unlimited Miles';
   searchValues;
   vehicleDetails;

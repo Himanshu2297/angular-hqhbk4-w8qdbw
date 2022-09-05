@@ -19,8 +19,6 @@ export class TopBarComponent implements OnDestroy {
       if (event instanceof NavigationStart) {
         if (event.url == '/sort') {
           this.pageHeader = 'Sort';
-        } else if (event.url == '/search') {
-          this.pageHeader = 'Search';
         } else {
           this.pageHeader = 'Travtor';
         }

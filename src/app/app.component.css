@@ -1,9 +1,8 @@
-.displayNone {
-  display: none;
+app-top-bar {
+  position: sticky;
+  top: 0px;
 }
 
-.test {
-}
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that

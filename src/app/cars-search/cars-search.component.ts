@@ -42,9 +42,9 @@ export class CarsSearchComponent implements OnInit {
     this.submitted = true;
 
     this.carSearchService.setSearchDetails(this.carsSearchForm.value);
-    // if (this.carsSearchForm.invalid) {
-    //   return;
-    // }
+    if (this.carsSearchForm.invalid) {
+      return;
+    }
     this.router.navigate(['search']);
   }
 }

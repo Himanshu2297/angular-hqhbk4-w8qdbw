@@ -4,12 +4,11 @@ import { CarsSearchComponent } from './cars-search.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SearchComponent } from '../search-component/search.component';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { CarListComponent } from '../car-list/car-list.component';
 import { SortComponent } from '../sort/sort.component';
 
 @NgModule({
-  declarations: [CarsSearchComponent, SearchComponent, SortComponent],
+  declarations: [CarsSearchComponent, CarListComponent, SortComponent],
   providers: [],
   imports: [
     CarsSearchRoutingModule,

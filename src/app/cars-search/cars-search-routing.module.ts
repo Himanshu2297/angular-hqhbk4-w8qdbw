@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CarsSearchComponent } from './cars-search.component';
-import { SearchComponent } from '../search-component/search.component';
+import { CarListComponent } from '../car-list/car-list.component';
 import { SortComponent } from '../sort/sort.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: 'search',
-        component: SearchComponent,
+        component: CarListComponent,
       },
       { path: 'sort', component: SortComponent },
     ],
