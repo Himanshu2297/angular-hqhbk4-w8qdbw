@@ -1,6 +1,11 @@
 <div class="location-details">
   <strong>{{ searchValues.pickUpLocation }}</strong>
-  <small>{{ searchValues.pickUpTime + '-' + searchValues.dropOffTime }}</small>
+  <small
+    >{{ searchValues.pickUpDate | date: 'MMM dd' }},
+    {{ searchValues.pickUpTime  }} -
+    {{ searchValues.dropOffDate | date: 'MMM dd' }},
+    {{ searchValues.dropOffTime  }}</small
+  >
 </div>
 <div class="items-container">
   <div
