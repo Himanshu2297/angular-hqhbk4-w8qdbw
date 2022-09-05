@@ -20,7 +20,18 @@ export class CarListComponent implements OnInit {
 
   ngOnInit() {
     this.searchValues = this.carSearchService.getSearchDetails();
+
+    if (!this.searchValues.pickUpLocation) {
+      this.router.navigate(['/']);
+      return;
+    }
     this.vehicleDetails = this.carSearchService.getVehicleDetails();
+    this.searchValues.pickUpTime = this.formatAMPM(
+      this.searchValues.pickUpTime
+    );
+    this.searchValues.dropOffTime = this.formatAMPM(
+      this.searchValues.dropOffTime
+    );
 
     this.sortDetails = this.carSearchService.getSortDetails();
     console.log(this.sortDetails);
@@ -43,5 +54,17 @@ export class CarListComponent implements OnInit {
   sortResults() {
     this.router.navigate(['sort']);
     // console.log('hiiii');
+  }
+
+  formatAMPM(time) {
+    let timeList = time.split(':');
+    let hours = timeList[0];
+    let minutes = timeList[1];
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
   }
 }

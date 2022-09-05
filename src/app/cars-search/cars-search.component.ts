@@ -40,7 +40,7 @@ export class CarsSearchComponent implements OnInit {
 
   searchCars() {
     this.submitted = true;
-
+    console.log(this.carsSearchForm.value);
     this.carSearchService.setSearchDetails(this.carsSearchForm.value);
     if (this.carsSearchForm.invalid) {
       return;
