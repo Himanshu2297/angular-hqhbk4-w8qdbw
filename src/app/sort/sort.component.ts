@@ -9,32 +9,8 @@ import { CarSearchService } from '../services/car-search.service';
   styleUrls: ['./sort.component.css'],
 })
 export class SortComponent implements OnInit {
-  sortValues = [
-    {
-      sortId: '104',
-      sortValueBy: 'Price: Lowest',
-    },
-    {
-      sortId: '105',
-      sortValueBy: 'Price: Highest',
-    },
-    {
-      sortId: '106',
-      sortValueBy: 'Rental Company: A to Z',
-    },
-    {
-      sortId: '107',
-      sortValueBy: 'Rental Company: Z to A',
-    },
-    {
-      sortId: '108',
-      sortValueBy: 'Car Type: A to Z',
-    },
-    {
-      sortId: '109',
-      sortValueBy: 'Car Type: Z to A',
-    },
-  ];
+  sortDetails: any;
+  sortValues: any;
 
   // form group
   sortValueFormGroup: FormGroup;
@@ -46,8 +22,13 @@ export class SortComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.sortValues = this.carSearchService.getSortValues();
+    this.sortDetails = this.carSearchService.getSortDetails();
+    const selectedValue = this.sortDetails?.sortType
+      ? this.sortDetails?.sortType
+      : '';
     this.sortValueFormGroup = this.formBuilder.group({
-      sortMethod: new FormControl('105'),
+      sortType: new FormControl(selectedValue),
     });
   }
 
@@ -61,6 +42,7 @@ export class SortComponent implements OnInit {
 
   backButton() {
     this.carSearchService.setSortDetails(this.sortValueFormGroup.value);
-    console.log(this.sortValueFormGroup.value);
+    // this.router.navigate(['search']);
+    // console.log('in side sort compooo', this.sortValueFormGroup.value);
   }
 }

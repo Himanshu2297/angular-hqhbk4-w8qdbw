@@ -49,7 +49,11 @@
       name="begin"
       placeholder="dd-mm-yyyy"
       value=""
-      min="{{ formControls['pickUpDate'].value ? (formControls['pickUpDate'].value | date: 'yyyy-MM-dd') :  (currentDate | date: 'yyyy-MM-dd')}}"
+      min="{{
+        formControls['pickUpDate'].value
+          ? (formControls['pickUpDate'].value | date: 'yyyy-MM-dd')
+          : (currentDate | date: 'yyyy-MM-dd')
+      }}"
       formControlName="dropOffDate"
       class="form-control"
       [ngClass]="{
@@ -264,4 +268,4 @@
   </div>
   <button class="btn btn-primary mr-1">Search Rental Cars</button>
 </form> -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

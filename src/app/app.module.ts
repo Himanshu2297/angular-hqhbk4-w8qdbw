@@ -35,7 +35,7 @@ import { SortComponent } from './sort/sort.component';
       { path: 'flights', component: FlightsComponent },
       { path: 'hotels', component: HotelsComponent },
       { path: 'cruises', component: CruisesComponent },
-      { path: 'sort', component: SortComponent },
+      // { path: 'sort', component: SortComponent },
 
       // {
       //   path: 'search',
@@ -51,7 +51,7 @@ import { SortComponent } from './sort/sort.component';
     FlightsComponent,
     HotelsComponent,
     CruisesComponent,
-    SortComponent,
+    // SortComponent,
     // SearchComponent,
   ],
   bootstrap: [AppComponent],

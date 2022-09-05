@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class CarSearchService {
   searchDetails = {};
-  sortDetails = {};
+  sortDetails: any;
   vehicleDetails: any = {
     carMockItineraries: {
       currency: 'USD',
@@ -26,7 +26,7 @@ export class CarSearchService {
           },
           vehicle: {
             name: 'Group A - Kia Rio or similar',
-            type: 'Economy',
+            type: 'A class',
             image:
               'https://www.avis.com/content/dam/cars/l/2021/toyota/2021-toyota-camry-se-sedan-black.png',
             specifications: {
@@ -48,7 +48,7 @@ export class CarSearchService {
           },
           vehicle: {
             name: 'Group B - Ford Focus or similar',
-            type: 'Compact',
+            type: 'C Class',
             image:
               'http://www.avis.com/car-rental/images/global/en/rentersguide/vehicle_guide/2016-ford-focus-se-sedan-black.png',
             specifications: {
@@ -70,7 +70,7 @@ export class CarSearchService {
           },
           vehicle: {
             name: 'Group B - Kia Soul or similar',
-            type: 'Compact',
+            type: 'D Class',
             image:
               'https://www.avis.com/content/dam/cars/l/2021/kia/2021-kia-soul-s-5door-hatchback-black.png',
             specifications: {
@@ -92,7 +92,7 @@ export class CarSearchService {
           },
           vehicle: {
             name: 'Group C - Toyata Corolla or similar',
-            type: 'Intermediate',
+            type: 'B Class',
             image:
               'https://www.avis.com/content/dam/cars/l/2020/toyota/2020-toyota-corolla-le-sedan-grey.png',
             specifications: {
@@ -114,7 +114,7 @@ export class CarSearchService {
           },
           vehicle: {
             name: 'Group C - Volkswagen Jetta or similar',
-            type: 'CargoVan',
+            type: 'C Class',
             image:
               'https://www.avis.com/content/dam/cars/l/2021/volkswagen/2021-volkswagen-jetta-s-sedan-silver.png',
             specifications: {
@@ -131,7 +131,114 @@ export class CarSearchService {
     },
   };
 
+  sortValues = [
+    {
+      sortId: '104',
+      sortValueBy: 'Price: Lowest',
+    },
+    {
+      sortId: '105',
+      sortValueBy: 'Price: Highest',
+    },
+    {
+      sortId: '106',
+      sortValueBy: 'Rental Company: A to Z',
+    },
+    {
+      sortId: '107',
+      sortValueBy: 'Rental Company: Z to A',
+    },
+    {
+      sortId: '108',
+      sortValueBy: 'Car Type: A to Z',
+    },
+    {
+      sortId: '109',
+      sortValueBy: 'Car Type: Z to A',
+    },
+  ];
+
   getVehicleDetails() {
+    if (this.sortDetails && this.sortDetails.sortType == '104') {
+      this.vehicleDetails.carMockItineraries.CarItineraries.sort((a, b) => {
+        return a.fare.perDay - b.fare.perDay;
+      });
+      console.log('sport', this.sortDetails.sortType);
+    }
+
+    if (this.sortDetails && this.sortDetails.sortType == '105') {
+      this.vehicleDetails.carMockItineraries.CarItineraries.sort((a, b) => {
+        return b.fare.perDay - a.fare.perDay;
+      });
+      console.log('sport', this.sortDetails.sortType);
+    }
+
+    if (this.sortDetails && this.sortDetails.sortType == '106') {
+      this.vehicleDetails.carMockItineraries.CarItineraries.sort((a, b) => {
+        let fa = a.vehicle.name.toLowerCase(),
+          fb = b.vehicle.name.toLowerCase();
+
+        if (fa > fb) {
+          return 1;
+        }
+        if (fa < fb) {
+          return -1;
+        }
+        return 0;
+      });
+
+      console.log('sport', this.sortDetails.sortType);
+    }
+
+    if (this.sortDetails && this.sortDetails.sortType == '107') {
+      this.vehicleDetails.carMockItineraries.CarItineraries.sort((a, b) => {
+        let fb = a.vehicle.name.toLowerCase(),
+          fa = b.vehicle.name.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+
+      console.log('sport', this.sortDetails.sortType);
+    }
+    if (this.sortDetails && this.sortDetails.sortType == '108') {
+      this.vehicleDetails.carMockItineraries.CarItineraries.sort((a, b) => {
+        let fa = a.vehicle.type.toLowerCase(),
+          fb = b.vehicle.type.toLowerCase();
+
+        if (fa > fb) {
+          return 1;
+        }
+        if (fa < fb) {
+          return -1;
+        }
+        return 0;
+      });
+
+      console.log('sport', this.sortDetails.sortType);
+    }
+
+    if (this.sortDetails && this.sortDetails.sortType == '109') {
+      this.vehicleDetails.carMockItineraries.CarItineraries.sort((a, b) => {
+        let fb = a.vehicle.type.toLowerCase(),
+          fa = b.vehicle.type.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+
+      console.log('sport', this.sortDetails.sortType);
+    }
     return this.vehicleDetails;
   }
 
@@ -144,10 +251,15 @@ export class CarSearchService {
   }
 
   setSortDetails(value) {
+    console.log('valueeee', value);
     this.sortDetails = value;
   }
 
-  getSortDetails(value) {
+  getSortDetails() {
     return this.sortDetails;
+  }
+
+  getSortValues() {
+    return this.sortValues;
   }
 }

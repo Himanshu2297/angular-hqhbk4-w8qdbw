@@ -2,10 +2,11 @@
   <div *ngFor="let item of sortValues; let i = index">
     <input
       type="radio"
-      formControlName="sortMethod"
+      formControlName="sortType"
       id="radio{{ i }}"
-      name="sortMethod"
+      name="sortType"
       [value]="item.sortId"
+      (change)="backButton()"
     />
     <label class="custom-control-label" for="radio{{ i }}">
       {{ item.sortValueBy || '?' }}
@@ -13,6 +14,4 @@
   </div>
 </div>
 
-<button (click)="backButton()">Back</button>
-{{ sortValueFormGroup.controls['sortMethod'].value }}
-{{ getvalueById(sortValueFormGroup.controls['sortMethod'].value) | json }}
+<!-- <button (click)="backButton()">Back</button> -->

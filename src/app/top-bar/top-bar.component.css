@@ -10,3 +10,7 @@ can be found in the LICENSE file at https://angular.io/license
 a {
   text-decoration: none;
 }
+
+.displayNone {
+  display: none;
+}
