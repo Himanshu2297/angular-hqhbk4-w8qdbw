@@ -10,22 +10,31 @@
   font-size: 13px;
 }
 
-.location-details {
+.location-container {
   width: 100%;
   position: sticky;
-  top: 108px;
+  top: 68px;
   height: 55px;
   background-color: var(--secondary);
+}
+.location-container .material-icons {
+    color:white;
+    margin-left: 15px;
+    float: left;
+}
+.info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 54px;
 }
-.location-details strong {
-  font-size: 15px;
+
+.info strong {
   color: #fff;
+  font-size: 15px;
 }
-.location-details small {
+.info small {
   font-size: 14px;
   color: #fff;
 }
